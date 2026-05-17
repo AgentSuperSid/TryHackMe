@@ -51,7 +51,31 @@ Finished
 ===============================================================
 
 ```
-- While checking these directories, I came across `/robots.txt` and opened it.
+- While checking these directories, I came across `/robots.txt`(it is usually a file of interest during enumeration) and opened it : `http://10.67.179.30/robots.txt`.
+- It had a text `Wubbalubbadubdub`, which Im assuming is the password for the username we got earlier.
+- But the gobuster was still not able to find any login link while searching, so maybe the login page wasnt an html file, perhaps a .php file.
+- I again ran gobuster `gobuster dir -u http://10.67.179.30 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php`.
+- There was a lot of files to check, but I got `/login.php` and `/portal.php` early on, so I didnt have to continue the search.
+- I opened `/portal.php` which led me to `/login.php` itself. Anyways then I entered the details and `Wubbalubbadubdub` was indeed the password.
+- Then there was a command box. The first thing that I did was check what files/directories are actually present:
+```
+Sup3rS3cretPickl3Ingred.txt
+assets
+clue.txt
+denied.php
+index.html
+login.php
+portal.php
+robots.txt
+```
+- I opened each file in the web.
+- `clue.txt` Gave me this text *Look around the file system for the other ingredient.* , `index.html` just led us back to the main page.
+-  `Sup3rS3cretPickl3Ingred.txt` gave the text - *mr. meeseek hair* which actually was the first ingredient!
+-  `denied.php` didnt give any info even in the source code.
+-  Then I decided dive deeper by using `cd` command to go to the parent directories but it didnt work, maybe because it doesnt support switching directories in this.
+-  So I just tried `ls` in **home** and **/** directories by trial and error. I found `/home/rick/second ingredients`, but I still wasnt able to open it as as I was doing previously(http://10.67.179.30/....php way).
+-  Even `cat` didnt work. It said `cat` was disabled to make our work harder.
+-  
 
 ## What i Learned
 - Using gobuster to bruteforcing directories from a target url
