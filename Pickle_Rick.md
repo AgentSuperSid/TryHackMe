@@ -89,6 +89,8 @@ snap
 ## What i Learned
 - Using gobuster to bruteforcing directories from a target url
 - `less` command.
+- The wordlist argument after `-w` for gobuster is just a folder on my Kali machine that comes pre-loaded with text files full of common words,just text files.
+- It starts searching for files with these words. `-x` is to search for specific extentions.
 
 ### References
 - https://infosecwriteups.com/picklerick-tryhackme-writeup-74c6fedae081
