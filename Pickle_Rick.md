@@ -75,10 +75,21 @@ robots.txt
 -  Then I decided dive deeper by using `cd` command to go to the parent directories but it didnt work, maybe because it doesnt support switching directories in this.
 -  So I just tried `ls` in **home** and **/** directories by trial and error. I found `/home/rick/second ingredients`, but I still wasnt able to open it as as I was doing previously(http://10.67.179.30/....php way).
 -  Even `cat` didnt work. It said `cat` was disabled to make our work harder.
--  
+-  I tried `less`. It was not disabled so it worked - `less /home/rick/"second ingredients"`. I forgot to put "" for "second ingredients" so it didnt work the first time for me.
+-  This gave me the second ingrediant - `jerry tear`.
+-  After searching in folders for a long time, I didnt get anything, also the `/root` folder was empty which was weird.
+-  Then I tried using `sudo` in hoping to uncover any extra files. Turns out there were actually some hiddent files in the `/root` dir.
+```
+3rd.txt
+snap
+```
+- Opened `3rd.txt` using `less` command. This displayed the final ingrediant- **3rd ingredients: fleeb juice**!!!
+- Since Im new to solving these problems I couldnt have done it without other resources and getting some hints from the writeups.
 
 ## What i Learned
 - Using gobuster to bruteforcing directories from a target url
+- `less` command.
 
 ### References
-https://infosecwriteups.com/picklerick-tryhackme-writeup-74c6fedae081
+- https://infosecwriteups.com/picklerick-tryhackme-writeup-74c6fedae081
+- Google search for commands to use instead of `cat`, that is `less`.
