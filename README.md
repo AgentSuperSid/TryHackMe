@@ -1,2 +1,2 @@
 # TryHackMe
-Contains writups for rooms and stuff which i did.
+Contains writups for rooms/boxes and stuff which i did.
